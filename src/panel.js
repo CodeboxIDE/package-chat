@@ -18,11 +18,23 @@ define([
         initialize: function(options) {
             Panel.__super__.initialize.apply(this, arguments);
 
+            this.animation = null;
             this.messages = new Messages({}, this);
 
             // On new messages
             this.listenTo(events, "e:chat:message", function(msg) {
-                this.messages.collection.unshift(msg);
+                this.messages.collection.push(msg);
+            });
+
+            // Handle scrolling correctly
+            this.listenTo(this.messages, "add", function() {
+                if (this.animation != null) {
+                    this.animation.stop();
+                }
+
+                this.animation = this.$(".inner").animate({
+                    scrollTop: this.$(".inner")[0].scrollHeight
+                }, 60);
             });
 
             // Load messages

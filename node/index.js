@@ -21,11 +21,11 @@ module.exports = function(codebox) {
                 }
             };
 
-            messages.unshift(message);
-            messages = messages.slice(0, LIMIT);
+            messages.push(message);
+            messages = messages.slice(-LIMIT);
 
             events.emit("chat:message", message);
-            return Q(message);
+            return message;
         },
 
         messages: function() {

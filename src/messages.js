@@ -6,10 +6,12 @@ define(function() {
         className: "message",
 
         render: function() {
-            var $author = $("<span>", {
+            var $author = $("<p>", {
+                'class': "message-author",
                 'text': this.model.get("from.name")
             }).appendTo(this.$el);
-            var $content = $("<span>", {
+            var $content = $("<p>", {
+                'class': "message-content",
                 'text': this.model.get("content")
             }).appendTo(this.$el);
             return this.ready();
@@ -17,7 +19,8 @@ define(function() {
     });
 
     var Messages = hr.List.extend({
-        className: "chat-messages"
+        className: "messages",
+        Item: Message
     });
 
     return Messages;
