@@ -1,4 +1,3 @@
-package-chat
-============
+# Chat
 
-Chat integrated inside the IDE
+This package contains the lateral chat panel.

@@ -1,0 +1,13 @@
+{
+    "name": "chat",
+    "version": "0.0.0",
+    "description": "Lateral Chat Panel",
+    "main": "src/index",
+    "node": "node/index",
+    "engines": {
+        "codebox": ">=1.0.0"
+    },
+    "packageDependencies": {
+        "panels": "CodeboxIDE/package-panels"
+    }
+}
