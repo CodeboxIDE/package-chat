@@ -4,6 +4,6 @@ define([
 ], function(Panel) {
     codebox.panels.add(Panel, {}, {
         title: "Chat",
-        icon: "comment-discussion"
+        icon: "comment"
     });
 });

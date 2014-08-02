@@ -15,6 +15,7 @@ module.exports = function(codebox) {
 
             var message = {
                 'content': args.message,
+                'date': Date.now(),
                 'from': {
                     'name': meta.user.name,
                     'userId': meta.user.id
