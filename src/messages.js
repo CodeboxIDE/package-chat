@@ -11,7 +11,7 @@ define([
         initialize: function(options) {
             Message.__super__.initialize.apply(this, arguments);
 
-            setInterval(this.update.bind(this), 5000);
+            setInterval(this.update.bind(this), 30000);
         },
 
         templateContext: function() {
