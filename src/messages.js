@@ -3,6 +3,7 @@ define([
 ], function(templateMessage) {
     var hr = codebox.require("hr/hr");
     var $ = codebox.require("hr/dom");
+    var users = codebox.require("core/users");
 
     var Message = hr.List.Item.extend({
         className: "message",
@@ -15,8 +16,10 @@ define([
         },
 
         templateContext: function() {
+            var user = users.get(this.model.get("from.id"));
             return {
-                model: this.model
+                model: this.model,
+                color: user? user.get("color") : null
             };
         }
     });

@@ -18,7 +18,7 @@ module.exports = function(codebox) {
                 'date': Date.now(),
                 'from': {
                     'name': meta.user.name,
-                    'userId': meta.user.id
+                    'id': meta.user.id
                 }
             };
 

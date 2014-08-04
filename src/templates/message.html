@@ -1,5 +1,5 @@
 <p>
-    <span class="message-author"><%- model.get("from.name") %></span>
+    <span class="message-author" <% if (color) { %>style="color: <%- color %>;"<% } %>><%- model.get("from.name") %></span>
     <span class="message-date"><%- $date.relative(model.get("date")) %></span>
 </p>
 <p class="message-content">
