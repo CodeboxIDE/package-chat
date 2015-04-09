@@ -2,12 +2,25 @@
     "name": "chat",
     "version": "0.0.0",
     "description": "Lateral Chat Panel",
-    "main": "src/index",
-    "node": "node/index",
+    "browser": "./src/index.js",
+    "main": "./node/index.js",
     "engines": {
         "codebox": ">=1.0.0"
     },
     "packageDependencies": {
         "panels": "CodeboxIDE/package-panels"
+    },
+    "dependencies": {
+        "stringify": "3.1.0",
+        "moment": "2.10.2"
+    },
+    "browserify": {
+        "transform": [
+            [
+                "stringify", {
+                    "extensions": [".html"]
+                }
+            ]
+        ]
     }
 }

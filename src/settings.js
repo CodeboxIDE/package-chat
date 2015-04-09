@@ -1,11 +1,9 @@
-define(function() {
-    return codebox.settings.schema("chat",
-        {
-            "title": "Chat",
-            "type": "object",
-            "properties": {
+module.exports = codebox.settings.schema("chat",
+    {
+        "title": "Chat",
+        "type": "object",
+        "properties": {
 
-            }
         }
-    );
-});
+    }
+);

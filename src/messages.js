@@ -1,33 +1,34 @@
-define([
-    "text!src/templates/message.html"
-], function(templateMessage) {
-    var hr = codebox.require("hr/hr");
-    var $ = codebox.require("hr/dom");
-    var users = codebox.require("core/users");
+var moment = require("moment");
+var templateMessage = require("./templates/message.html");
 
-    var Message = hr.List.Item.extend({
-        className: "message",
-        template: templateMessage,
+var View = codebox.require("hr.view");
+var ListView = codebox.require("hr.list");
+var $ = codebox.require("jquery");
+var users = codebox.require("core/users");
 
-        initialize: function(options) {
-            Message.__super__.initialize.apply(this, arguments);
+var Message = ListView.Item.inherit(View.Template).extend({
+    className: "message",
+    template: templateMessage,
 
-            setInterval(this.update.bind(this), 30000);
-        },
+    initialize: function(options) {
+        Message.__super__.initialize.apply(this, arguments);
 
-        templateContext: function() {
-            var user = users.get(this.model.get("from.id"));
-            return {
-                model: this.model,
-                color: user? user.get("color") : null
-            };
-        }
-    });
+        setInterval(this.update.bind(this), 30000);
+    },
 
-    var Messages = hr.List.extend({
-        className: "messages",
-        Item: Message
-    });
-
-    return Messages;
+    templateContext: function() {
+        var user = users.get(this.model.get("from.id"));
+        return {
+            model: this.model,
+            color: user? user.get("color") : null,
+            date: moment(this.model.get("date")).fromNow()
+        };
+    }
 });
+
+var Messages = ListView.extend({
+    className: "messages",
+    Item: Message
+});
+
+module.exports = Messages;
