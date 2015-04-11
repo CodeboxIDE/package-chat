@@ -4,5 +4,6 @@ var Panel = require("./panel");
 
 codebox.panels.add(Panel, {}, {
     title: "Chat",
-    icon: "comment"
+    icon: "comment",
+    section: "chat"
 });
